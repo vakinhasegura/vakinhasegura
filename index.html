@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cura para Maria</title>
+
+<style>
+:root {
+  --rosa: #f6b1c3;
+  --rosa-escuro: #e78aa3;
+  --branco: #ffffff;
+  --cinza: #555;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(180deg, var(--rosa), #fff);
+  text-align: center;
+  padding: 30px 15px;
+}
+
+header h1 {
+  color: var(--rosa-escuro);
+  margin-bottom: 10px;
+}
+
+header p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 16px;
+}
+
+.section {
+  padding: 25px 15px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.btn-doar {
+  display: block;
+  background: var(--rosa-escuro);
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.btn-doar:hover {
+  opacity: 0.9;
+}
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+  gap: 10px;
+}
+
+.galeria img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.progress-box {
+  background: #f2f2f2;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.progress {
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 22px;
+  margin: 10px 0;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  width: 58%;
+  background: var(--rosa-escuro);
+}
+
+.comentario {
+  background: #fafafa;
+  border-left: 4px solid var(--rosa-escuro);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+footer {
+  background: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: var(--cinza);
+}
+
+/* MODAL PIX */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 350px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal img {
+  width: 200px;
+  margin: 10px 0;
+}
+
+.pix-box {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 8px;
+  word-break: break-all;
+  font-size: 14px;
+}
+
+.copy-btn {
+  margin-top: 10px;
+  background: var(--rosa-escuro);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Cura para Maria</h1>
+  <p><strong>Maria Alice precisa da sua ajuda para comprar o medicamento mais caro do mundo!</strong></p>
+</header>
+
+<section class="section galeria">
+  <img src="foto1.jpg">
+  <img src="foto2.jpg">
+  <img src="foto3.jpg">
+  <img src="foto4.jpg">
+  <img src="foto5.jpg">
+</section>
+
+<section class="section">
+<p>
+No dia 13/09/2024, minha filha Maria Alice foi diagnosticada com Atrofia Muscular Espinhal (AME) tipo 2.
+Essa doença afeta aproximadamente 1 em cada 10.000 crianças.
+</p>
+
+<p>
+Preciso arrecadar <strong>2 milhões de reais urgentemente</strong>. Já arrecadamos mais de 3 milhões e meio através de ONG’s.
+O medicamento custa cerca de 6 milhões de reais. Falta exatamente 2 milhões para conseguirmos o Zolgensma.
+</p>
+
+<a class="btn-doar" onclick="abrirPix()">💗 QUERO DOAR AGORA</a>
+</section>
+
+<section class="section">
+<h2>Como descobri a AME</h2>
+<p>
+Meu nome é Eduardo, suspeitei que algo estava errado quando minha filha não conseguia sentar,
+engatinhar ou sustentar peso nas pernas. Depois perdeu a capacidade de andar.
+</p>
+
+<p>
+Após exames, veio o diagnóstico: AME. É uma doença extremamente fatal.
+Cerca de 68% não chegam aos 2 anos; 84% não chegam aos 4.
+</p>
+
+<p>
+Mesmo assim, ela nunca deixou de sorrir. Ela nos ensina diariamente o que é força.
+</p>
+</section>
+
+<section class="section">
+<h2>Arrecadação</h2>
+<div class="progress-box">
+<p><strong>Arrecadado:</strong> R$ 3.512.847,00</p>
+<div class="progress"><span></span></div>
+<p><strong>Meta:</strong> R$ 6.000.000,00</p>
+</div>
+</section>
+
+<section class="section">
+<h2>Comentários</h2>
+
+<div class="comentario">
+<strong>Mariana Souza</strong><br>
+Doei com amor. Deus abençoe! 💖🙏
+</div>
+
+<div class="comentario">
+<strong>Carlos Moreira</strong><br>
+Força, Eduardo! Estamos com vocês. 🙌💗
+</div>
+
+<div class="comentario">
+<strong>Ana Paula</strong><br>
+Contribuí! Que o remédio venha logo! 💕
+</div>
+</section>
+
+<footer>
+Cada contribuição — pequena ou grande — ajuda Maria Alice a ter uma chance real de viver.
+</footer>
+
+<!-- MODAL PIX -->
+<div class="modal" id="pixModal">
+  <div class="modal-content">
+    <h3>Doe via Pix 💗</h3>
+    <img src="pix-qrcode.png" alt="QR Code Pix">
+    <div class="pix-box" id="pixKey">SUA_CHAVE_PIX_AQUI</div>
+    <button class="copy-btn" onclick="copiarPix()">Copiar chave Pix</button>
+    <button class="copy-btn" onclick="fecharPix()" style="background:#ccc;color:#333;">Fechar</button>
+  </div>
+</div>
+
+<script>
+function abrirPix() {
+  document.getElementById('pixModal').style.display = 'flex';
+}
+
+function fecharPix() {
+  document.getElementById('pixModal').style.display = 'none';
+}
+
+function copiarPix() {
+  const pix = document.getElementById('pixKey').innerText;
+  navigator.clipboard.writeText(pix);
+  alert("Chave Pix copiada!");
+}
+</script>
+
+</body>
+</html>
