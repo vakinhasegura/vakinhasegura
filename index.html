@@ -6,7 +6,6 @@
 <title>Campanha Solidária</title>
 
 <style>
-/* ================== ESTILOS ================== */
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -70,7 +69,6 @@ button {
   background: #eafaf1;
   border: 2px solid #1fa463;
   color: #1fa463;
-  position: relative;
 }
 
 .valor-btn:hover {
@@ -178,7 +176,7 @@ footer h3 {
   font-weight: bold;
 }
 
-/* MODAL */
+/* MODAIS */
 .modal {
   display: none;
   position: fixed;
@@ -215,17 +213,6 @@ footer h3 {
 }
 
 /* BOTÃO COPIAR */
-.pix-container {
-  margin-top: 10px;
-  background: #f4f4f4;
-  padding: 10px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-
 .copy-btn {
   padding: 6px 10px;
   background: #1fa463;
@@ -281,16 +268,16 @@ footer h3 {
     <div class="card-content">
       <h2>Escolha um valor para ajudar</h2>
 
-      <button class="valor-btn" onclick="showPix('qrcode5.png', 'vakinhasegura5', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me52040000530398654045.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304EF1E')">R$ 5</button>
-      <button class="valor-btn" onclick="showPix('qrcode10.png', 'vakinhasegura10', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540510.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***630498A9')">R$ 10</button>
-      <button class="valor-btn" onclick="showPix('qrcode15.png', 'vakinhasegura15', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540515.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304F66B')">R$ 15</button>
-      <button class="valor-btn" onclick="showPix('qrcode20.png', 'vakinhasegura20', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540520.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304A271')">R$ 20</button>
-      <button class="valor-btn" onclick="showPix('qrcode50.png', 'vakinhasegura50', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me520400005303986540550.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304C189')">R$ 50</button>
-      <button class="valor-btn" onclick="showPix('qrcode100.png', 'vakinhasegura100', '00020126450014BR.GOV.BCB.PIX0123vakinhasegura@proton.me5204000053039865406100.005802BR5922JOSIAS MARINS DO CARMO6011SAO GONCALO62070503***6304E225')">R$ 100</button>
+      <button class="valor-btn" onclick="showPix('qrcode5.png', 'vakinhasegura5', 'PIX COMPLETO 5')">R$ 5</button>
+      <button class="valor-btn" onclick="showPix('qrcode10.png', 'vakinhasegura10', 'PIX COMPLETO 10')">R$ 10</button>
+      <button class="valor-btn" onclick="showPix('qrcode15.png', 'vakinhasegura15', 'PIX COMPLETO 15')">R$ 15</button>
+      <button class="valor-btn" onclick="showPix('qrcode20.png', 'vakinhasegura20', 'PIX COMPLETO 20')">R$ 20</button>
+      <button class="valor-btn" onclick="showPix('qrcode50.png', 'vakinhasegura50', 'PIX COMPLETO 50')">R$ 50</button>
+      <button class="valor-btn" onclick="showPix('qrcode100.png', 'vakinhasegura100', 'PIX COMPLETO 100')">R$ 100</button>
 
       <!-- CONTÊINER DO QR + PIX + BOTÃO COPIAR -->
       <div id="qrContainer" style="display:none; margin-top:20px; text-align:center;">
-        <img id="qrImage" src="" alt="QR Code" style="width:200px; margin-bottom:10px;">
+        <img id="qrImage" src="" alt="QR Code" style="width:200px; margin:0 auto 10px; display:block;">
         <p id="pixDisplay" style="font-size:14px; margin-bottom:10px;"></p>
         <button class="copy-btn" onclick="copyFullPix()">Copiar código PIX</button>
       </div>
@@ -376,23 +363,27 @@ footer h3 {
   <button class="fale-btn">Fale Conosco</button>
 </footer>
 
-<!-- MODAIS -->
+<!-- MODAL DO APADRINHADOR -->
 <div class="modal" id="apadrinhadorModal">
   <div class="modal-content">
     <h3>Apadrinhador</h3>
-    <input type="text" placeholder="Digite seu nome">
-    <button class="ajudar-btn" onclick="openQR('qrcode-ajudar.png')">Continuar</button>
+    <input type="text" id="apadrinhadorNome" placeholder="Digite seu nome">
+    <button class="ajudar-btn" onclick="confirmApadrinhador()">Continuar</button>
     <div class="close" onclick="closeModal()">Cancelar</div>
   </div>
 </div>
 
 <script>
-let fullPixCode = ''; // guarda o código PIX completo
+let fullPixCode = '';
+let selectedQR = '';
+let selectedDisplay = '';
 
 function showPix(qrImg, displayName, pixCode) {
   document.getElementById('qrImage').src = qrImg;
   document.getElementById('pixDisplay').innerText = displayName;
   fullPixCode = pixCode;
+  selectedQR = qrImg;
+  selectedDisplay = displayName;
   document.getElementById('qrContainer').style.display = 'block';
 }
 
@@ -408,6 +399,16 @@ function openApadrinhador() {
 
 function closeModal() {
   document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+}
+
+function confirmApadrinhador() {
+  const nome = document.getElementById('apadrinhadorNome').value.trim();
+  if(!nome) { alert('Por favor, digite seu nome!'); return; }
+  if(!selectedQR) { alert('Selecione um valor primeiro!'); return; }
+  document.getElementById('qrImage').src = selectedQR;
+  document.getElementById('pixDisplay').innerText = selectedDisplay;
+  document.getElementById('qrContainer').style.display = 'block';
+  closeModal();
 }
 </script>
 
