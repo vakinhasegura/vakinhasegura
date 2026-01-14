@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campanha Solidária</title>
+
+<style>
+:root {
+  --verde: #1fa463;
+  --verde-escuro: #178a53;
+  --cinza: #f4f6f8;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cinza);
+}
+
+header {
+  background: var(--verde);
+  color: #fff;
+  padding: 18px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+}
+
+.container {
+  max-width: 720px;
+  margin: auto;
+  padding: 16px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.gallery img {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.amounts button, .help-btn {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.amounts button {
+  background: #eafaf1;
+  border: 2px solid var(--verde);
+  color: var(--verde);
+}
+
+.amounts button:hover {
+  background: var(--verde);
+  color: #fff;
+}
+
+.help-btn {
+  background: var(--verde);
+  color: #fff;
+  font-size: 18px;
+}
+
+.help-btn:hover {
+  background: var(--verde-escuro);
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.date {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* COMENTÁRIOS */
+.comment {
+  border-top: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.comment strong {
+  color: var(--verde);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.modal-content img {
+  width: 100%;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.close {
+  margin-top: 10px;
+  cursor: pointer;
+  color: var(--verde);
+}
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  padding: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<header>Campanha Solidária</header>
+
+<div class="banner">
+  <img src="img/banner.jpg" alt="Banner">
+</div>
+
+<div class="container">
+
+  <!-- GALERIA -->
+  <div class="card">
+    <div class="gallery">
+      <img src="img/foto1.jpg">
+      <img src="img/foto2.jpg">
+      <img src="img/foto3.jpg">
+    </div>
+  </div>
+
+  <!-- BOTÕES -->
+  <div class="card">
+    <div class="card-content">
+      <h2>Escolha um valor para ajudar</h2>
+
+      <div class="amounts">
+        <button onclick="openQR('img/qr5.png')">R$ 5</button>
+        <button onclick="openQR('img/qr10.png')">R$ 10</button>
+        <button onclick="openQR('img/qr20.png')">R$ 20</button>
+        <button onclick="openQR('img/qr50.png')">R$ 50</button>
+        <button onclick="openQR('img/qr100.png')">R$ 100</button>
+      </div>
+
+      <button class="help-btn" onclick="openName()">Quero ajudar</button>
+    </div>
+  </div>
+
+  <!-- TEXTO -->
+  <div class="card">
+    <div class="card-content description">
+      <div class="date">Vaquinha criada em: 15/09/2025</div>
+
+      <p>Duas irmãs, de apenas 9 e 12 anos, vivem uma realidade que nenhuma criança deveria enfrentar. Elas moram no Sítio Saquinho, próximo de São João dos Leites, no município de Flores, em uma casa sem energia elétrica, sem móveis básicos e sem o mínimo de conforto.</p>
+
+      <p>Todos os dias, essas meninas cozinham no chão, dormem sem estrutura adequada e enfrentam noites no escuro. Não há geladeira, não há fogão adequado, não há sequer uma mesa ou camas dignas. O que existe ali é apenas o essencial para sobreviver — e muito amor.</p>
+
+      <p>O pai delas é um homem simples, trabalhador e extremamente dedicado. Ele nunca abandonou suas filhas. Pelo contrário, faz tudo o que está ao seu alcance para protegê-las, cuidar e manter a dignidade delas, mesmo com recursos quase inexistentes.</p>
+
+      <p>Nosso objetivo é transformar essa realidade. Queremos levar energia elétrica para a casa, garantir móveis básicos, como camas, mesa, cadeiras, além de um fogão e condições mínimas para que essas meninas tenham uma infância mais segura, confortável e digna.</p>
+
+      <p><strong>Cada dia sem ajuda é mais um dia de sofrimento silencioso para essas crianças.</strong> Elas merecem estudar com luz, dormir com conforto, comer com dignidade e sonhar com um futuro melhor.</p>
+    </div>
+  </div>
+
+  <!-- COMENTÁRIOS -->
+  <div class="card">
+    <div class="card-content">
+      <h3>Mensagens de apoio</h3>
+
+      <div class="comment"><strong>Ana Paula</strong><br>Gratidão por poder ajudar essa causa tão importante 🙏</div>
+      <div class="comment"><strong>Carlos Henrique</strong><br>Que Deus abençoe essas meninas e todos envolvidos.</div>
+      <div class="comment"><strong>Mariana Silva</strong><br>É pouco, mas de coração. Que faça diferença ❤️</div>
+      <div class="comment"><strong>José Roberto</strong><br>Fico feliz em participar dessa ação solidária.</div>
+      <div class="comment"><strong>Fernanda Lima</strong><br>Compartilhei para mais pessoas ajudarem.</div>
+      <div class="comment"><strong>Lucas Andrade</strong><br>Que essa família tenha dias melhores.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Página informativa • Doação via PIX</footer>
+
+<!-- MODAIS -->
+<div class="modal" id="qrModal">
+  <div class="modal-content">
+    <h3>Escaneie o QR Code</h3>
+    <img id="qrImage">
+    <div class="close" onclick="closeModal()">Fechar</div>
+  </div>
+</div>
+
+<div class="modal" id="nameModal">
+  <div class="modal-content">
+    <h3>Digite seu nome</h3>
+    <input type="text" id="userName" placeholder="Seu nome">
+    <button class="help-btn" onclick="openFinalQR()">Continuar</button>
+    <div class="close" onclick="closeModal()">Cancelar</div>
+  </div>
+</div>
+
+<script>
+function openQR(img) {
+  document.getElementById('qrImage').src = img;
+  document.getElementById('qrModal').style.display = 'flex';
+}
+
+function openName() {
+  document.getElementById('nameModal').style.display = 'flex';
+}
+
+function openFinalQR() {
+  const name = document.getElementById('userName').value;
+  if (!name) {
+    alert('Digite seu nome.');
+    return;
+  }
+  closeModal();
+  openQR('img/qr-nome.png');
+}
+
+function closeModal() {
+  document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+}
+</script>
+
+</body>
+</html>
